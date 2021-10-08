@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: hong
+server:
+  port: 19001
