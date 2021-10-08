@@ -5,7 +5,7 @@ services:
   redis:
     image: redis:6.2
     ports:
-      - "6379:6379"
+      - 19379:6379
     restart: always
     command: redis-server --requirepass hong
     volumes:
@@ -15,7 +15,7 @@ services:
     image: mongo:4.2
     restart: always
     ports:
-      - 27017:27017
+      - 19017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: hong
@@ -26,7 +26,7 @@ services:
     image: mongo-express:0.54
     restart: always
     ports:
-      - 8081:8081
+      - 19018:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: hong
