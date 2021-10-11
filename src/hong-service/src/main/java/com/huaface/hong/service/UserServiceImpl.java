@@ -21,19 +21,19 @@ public class UserServiceImpl implements UserService {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Override
-    public String getUserName(Long id) {
+    public String getUserName(String id) {
         UserDO userDO = mongoTemplate.findById(id, UserDO.class);
         if (userDO == null) {
             UserDO aDo = new UserDO();
             aDo.setId(id);
-            aDo.setName("test测试");
-            aDo.setAge(33);
+            aDo.setNickName("test测试");
+            aDo.setGender(123);
             mongoTemplate.save(aDo);
         }
         UserDO userDO1 = mongoTemplate.findById(id, UserDO.class);
         if (userDO1 != null) {
             redisTemplate.opsForValue().set("test", userDO1, Duration.ofMinutes(60));
-            return userDO1.getName();
+            return userDO1.getNickName();
         }
 
         return "未发现数据";

@@ -19,7 +19,7 @@ public class HomeController {
     }
 
     @GetMapping("mongodb/{id}")
-    public String mongodb(@PathVariable Long id) {
+    public String mongodb(@PathVariable String id) {
         return userService.getUserName(id);
     }
 }

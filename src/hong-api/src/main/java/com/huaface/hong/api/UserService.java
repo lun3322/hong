@@ -8,7 +8,7 @@ import com.huaface.hong.api.model.UserModel;
  */
 public interface UserService {
 
-    String getUserName(Long id);
+    String getUserName(String id);
 
 //    UserModel addUser(UserModel user);
 }
