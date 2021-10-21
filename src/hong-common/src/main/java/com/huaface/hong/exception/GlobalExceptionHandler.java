@@ -1,5 +1,6 @@
 package com.huaface.hong.exception;
 
+import com.huaface.hong.utils.HongResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,8 +17,9 @@ public class GlobalExceptionHandler {
      * 处理自定义异常
      */
     @ExceptionHandler(value = HongException.class)
-    public ResponseEntity<Object> hongException(HongException e) {
-        log.error(e.getMessage());
-        return ResponseEntity.internalServerError().body(e.getMessage());
+    public HongResponse hongException(HongException e) {
+        String message = e.getMessage();
+        log.error(message);
+        return HongResponse.error(message);
     }
 }

@@ -21,6 +21,11 @@
             <artifactId>hong-dao</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.huaface</groupId>
+            <artifactId>hong-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/cn.dev33/sa-token-spring-boot-starter -->
         <dependency>
             <groupId>cn.dev33</groupId>
