@@ -44,7 +44,7 @@ jobs:
     - name: Docker push test
       if: ${{ contains(github.ref, 'refs/heads/develop') }}
       run: |
-        docker build -t ${{ secrets.API_IMAGE }}:dev${{ github.run_number }} .
+        docker build --build-arg version=dev${{ github.run_number }} -t ${{ secrets.API_IMAGE }}:dev${{ github.run_number }} .
         docker push ${{ secrets.API_IMAGE }}:dev${{ github.run_number }}
 
     - name: Deploy to test
