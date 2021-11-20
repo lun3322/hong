@@ -10,5 +10,7 @@ public interface UserService {
 
     String getUserName(String id);
 
+    void registerAdminAccount();
+
 //    UserModel addUser(UserModel user);
 }

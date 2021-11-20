@@ -31,6 +31,11 @@
             <artifactId>hong-manager</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.huaface</groupId>
+            <artifactId>hong-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
     </dependencies>
 

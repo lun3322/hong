@@ -1,6 +1,6 @@
 package com.huaface.hong.dao.dataobject;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -9,13 +9,17 @@ import java.time.LocalDateTime;
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Document("users")
-public class UserDO {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserDO extends BaseDO<String> {
     private String id;
     /**
      * 用户名
      */
-    private String username;
+    private String userName;
 
     /**
      * 昵称
@@ -25,7 +29,7 @@ public class UserDO {
     /**
      * 性别 1 男 2 女 3 保密
      */
-    private int gender;
+    private Integer gender = 3;
 
     /**
      * 手机号码
@@ -55,35 +59,5 @@ public class UserDO {
     /**
      * 是否为admin账号
      */
-    private String isAdmin;
-
-    /**
-     * 状态：1启用、0禁用
-     */
-    private Integer status;
-
-    /**
-     * 是否已删除
-     */
-    private String isDeleted;
-
-    /**
-     * 创建者
-     */
-    private Long createBy;
-
-    /**
-     * 更新者
-     */
-    private Long updateBy;
-
-    /**
-     * 创建日期
-     */
-    private LocalDateTime createTime;
-
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
+    private Boolean isAdmin = false;
 }

@@ -24,10 +24,11 @@ public class UserServiceImpl implements UserService {
     public String getUserName(String id) {
         UserDO userDO = mongoTemplate.findById(id, UserDO.class);
         if (userDO == null) {
-            UserDO aDo = new UserDO();
-            aDo.setId(id);
-            aDo.setNickName("test测试");
-            aDo.setGender(123);
+            UserDO aDo = UserDO.builder()
+                    .id(id)
+                    .nickName("test测试")
+                    .gender(123)
+                    .build();
             mongoTemplate.save(aDo);
         }
         UserDO userDO1 = mongoTemplate.findById(id, UserDO.class);
@@ -37,6 +38,11 @@ public class UserServiceImpl implements UserService {
         }
 
         return "未发现数据";
+    }
+
+    @Override
+    public void registerAdminAccount() {
+
     }
 
 //    @Autowired

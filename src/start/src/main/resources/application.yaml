@@ -19,3 +19,9 @@ spring:
 
 server:
   port: 19001
+
+sa-token:
+  token-name: ht
+  # 不使用cookie
+  is-read-cookie: false
+  is-read-body: false

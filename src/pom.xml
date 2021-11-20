@@ -23,6 +23,7 @@
         <module>hong-service</module>
         <module>hong-web</module>
         <module>start</module>
+        <module>hong-common</module>
     </modules>
 
     <dependencies>
