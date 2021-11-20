@@ -46,3 +46,13 @@ jobs:
       run: |
         docker build -t ${{ secrets.API_IMAGE }}:dev${{ github.run_number }} .
         docker push ${{ secrets.API_IMAGE }}:dev${{ github.run_number }}
+
+    - name: Deploy to test
+      uses: garygrossgarten/github-action-ssh@release
+      if: ${{ contains(github.ref, 'refs/heads/develop') }}
+      with:
+        command: helm upgrade --create-namespace -n hong-test --set image.tagApi=dev${{ github.run_number }} hong /root/hong-deploy/hong
+        host: ${{ secrets.SERVER_HOST }}
+        port: ${{ secrets.SERVER_PORT }}
+        username: ${{ secrets.SERVER_USER }}
+        privateKey: ${{ secrets.SERVER_PRIVATE_KEY}}
