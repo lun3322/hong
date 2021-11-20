@@ -3,9 +3,9 @@ spring:
     name: hong
   data:
     mongodb:
-      uri: mongodb://root:hong@127.0.0.1:19017/hong
+      uri: ${MONGODB_URL:mongodb://root:hong@127.0.0.1:19017/hong}
   redis:
-    url: redis://hong@127.0.0.1:19379/0
+    url: ${REDIS_URL:redis://hong@127.0.0.1:19379/0}
     lettuce:
       pool:
         #最大连接数
