@@ -24,11 +24,10 @@ public class UserServiceImpl implements UserService {
     public String getUserName(String id) {
         UserDO userDO = mongoTemplate.findById(id, UserDO.class);
         if (userDO == null) {
-            UserDO aDo = UserDO.builder()
-                    .id(id)
-                    .nickName("test测试")
-                    .gender(123)
-                    .build();
+            UserDO aDo = new UserDO();
+            aDo.setId(id);
+            aDo.setNickName("test测试");
+            aDo.setGender(123);
             mongoTemplate.save(aDo);
         }
         UserDO userDO1 = mongoTemplate.findById(id, UserDO.class);
