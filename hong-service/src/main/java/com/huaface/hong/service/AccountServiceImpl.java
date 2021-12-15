@@ -53,7 +53,7 @@ public class AccountServiceImpl implements AccountService {
         }
         UserDO userDO = UserDO.builder()
                 .userName(AccountConst.ADMIN_ACCOUNT)
-                .nickName("系统管理员")
+                .nickName(AccountConst.ADMIN_NICKNAME)
                 .password(SaSecureUtil.sha256(AccountConst.ADMIN_PASSWORD))
                 .isAdmin(true)
                 .build();
