@@ -51,12 +51,12 @@ public class AccountServiceImpl implements AccountService {
             log.info("存在管理员账号");
             return;
         }
-        UserDO userDO = UserDO.builder()
-                .userName(AccountConst.ADMIN_ACCOUNT)
-                .nickName(AccountConst.ADMIN_NICKNAME)
-                .password(SaSecureUtil.sha256(AccountConst.ADMIN_PASSWORD))
-                .isAdmin(true)
-                .build();
+
+        UserDO userDO = new UserDO();
+        userDO.setUserName(AccountConst.ADMIN_ACCOUNT);
+        userDO.setNickName(AccountConst.ADMIN_NICKNAME);
+        userDO.setPassword(SaSecureUtil.sha256(AccountConst.ADMIN_PASSWORD));
+        userDO.setIsAdmin(false);
         userRepository.save(userDO);
     }
 }

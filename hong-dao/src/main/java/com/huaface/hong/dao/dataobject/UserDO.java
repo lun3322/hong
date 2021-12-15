@@ -11,9 +11,6 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Document("users")
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class UserDO extends BaseDO<String> {
     private String id;
     /**
