@@ -1,11 +1,15 @@
 package com.huaface.hong.dao.dataobject;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
 /**
  * @author chenhongbo
  */
+@Data
 public class BaseDO<IDTYPE> {
+    private IDTYPE id;
 
     /**
      * 状态：1启用、0禁用

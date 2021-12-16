@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 @Document("users")
 public class UserDO extends BaseDO<String> {
-    private String id;
     /**
      * 用户名
      */
